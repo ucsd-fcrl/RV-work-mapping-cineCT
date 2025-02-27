@@ -13,8 +13,14 @@ if param_type==1 % Continuous Varaible
    % 
     nt1=normalitytest(group1_test');
     nt2=normalitytest(group2_test');
-    nt3=normalitytest(group3_test');
-    nt = [nt1(7,3) nt2(7,3) nt3(7,3)];
+    if isscalar(unique(group3_test))
+        nt3 = [];
+        nt = [nt1(7,3) nt2(7,3)];
+    else
+        nt3=normalitytest(group3_test');
+        nt = [nt1(7,3) nt2(7,3) nt3(7,3)];
+    end
+   
     %nt(7,3) = 0;
     
     if any(nt == 0)%nt(7,3)==0

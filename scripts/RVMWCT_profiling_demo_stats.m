@@ -56,7 +56,7 @@ FC = round(table2array(demo(:,10)));
 %perform statstical analysis on this variable by setting the normality to 0
 %in table_analysis, which performs a nonparametric analysis on the dataset.
 
-demo_results = [females, age,BMI, CT_RHC_time,afib, pm,PS, PR, TR, FC];
+demo_results = [females, age,BMI, CT_RHC_time,conductance,afib, pm,PS, PR, TR, FC];
 for i = 1:size(demo_results,2)
     [demo_stats(i,:),demo_reported_results(i,:)] = table_analysis(demo_results(1:19,i),demo_results(20:30,i),demo_results(31:end,i),1,1);
 end
